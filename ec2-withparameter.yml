@@ -4,13 +4,16 @@ Parameters:
     Default: add-your-value-here
   ImageId:
     Type: String
-    Default: add-your-value-here
+    Default: add-your-value-here-ami-id
+  Instancetype:
+     Type: String
+     Default: all-theinstancetype-like-t3.micro
 
 Resources:
   Ec2Instance: 
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t3.micro
-      ImageId:!Ref ImageId
+      InstanceType: !Ref Instancetype
+      ImageId: !Ref ImageId
       SecurityGroupIds:
       - !Ref SecurityGroupId
